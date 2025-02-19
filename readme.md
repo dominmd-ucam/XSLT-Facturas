@@ -1,103 +1,62 @@
-```markdown
-# Proyecto de Transformación de Facturas XML a HTML
+# Proyecto de Transformación de Facturas XML a XHTML
 
-Este proyecto tiene como objetivo la transformación de archivos XML de facturas en formato HTML utilizando archivos XSLT. Los archivos XSLT permiten personalizar la estructura del HTML de salida a partir de los datos del XML.
+Este proyecto permite transformar facturas en formato XML a documentos XHTML, validando y aplicando transformaciones mediante XSLT. Se utiliza PowerShell para ejecutar el proceso de conversión.
+
+## Requisitos
+
+Para ejecutar este proyecto, asegúrese de contar con:
+- Windows PowerShell
+- Archivos XML con facturas
+- Un archivo XSLT para la transformación
 
 ## Estructura del Proyecto
 
-La estructura de archivos en el proyecto es la siguiente:
-
 ```
-/factura.xml
-/factura1.xml
-/transformacion.xslt
-/transformacion1.xslt
-/factura.html
-/factura1.html
-/index.html
-/README.md
+/proyecto-transformacion
+|-- factura.xml             # Archivo XML de entrada
+|-- transformacion.xslt     # Archivo XSLT para la transformación
+|-- factura.html            # Archivo de salida generado (XHTML)
+|-- script.ps1              # Script PowerShell para ejecutar la transformación
 ```
 
-- **factura.xml**: Archivo XML de la primera factura.
-- **factura1.xml**: Archivo XML de la segunda factura.
-- **transformacion.xslt**: XSLT utilizado para transformar el primer archivo XML en HTML.
-- **transformacion1.xslt**: XSLT utilizado para transformar el segundo archivo XML en HTML.
-- **factura.html**: Resultado de la transformación de **factura.xml**.
-- **factura1.html**: Resultado de la transformación de **factura1.xml**.
-- **index.html**: Página de inicio con enlaces a los archivos del proyecto.
-- **README.md**: Este archivo con la documentación del proyecto.
+## Script de Transformación
 
-## Facturas
+El siguiente script de PowerShell permite cargar un archivo XML y aplicarle una transformación XSLT para generar una salida XHTML:
 
-### FACTURA FLORES:
+```powershell
+# Definir rutas a los archivos (rutas relativas)
+$xmlPath = ".\factura.xml"  # Archivo XML en la misma carpeta
+$xsltPath = ".\transformacion.xslt"  # Archivo XSLT en la misma carpeta
+$outputPath = ".\factura.html"  # Archivo de salida en la misma carpeta
 
-- **XML**: Archivo que contiene los datos de la factura en formato XML.
-- **XSLT**: Plantilla XSLT utilizada para transformar el archivo XML a HTML.
-- **HTML**: Resultado de la transformación, visualización de la factura en formato HTML.
+# Cargar el archivo XML
+$xml = New-Object System.Xml.XmlDocument
+$xml.Load($xmlPath)
 
-### FACTURA MOVILES:
+# Cargar el archivo XSLT
+$xslt = New-Object System.Xml.Xsl.XslCompiledTransform
+$xslt.Load($xsltPath)
 
-- **XML**: Archivo que contiene los datos de la factura en formato XML.
-- **XSLT**: Plantilla XSLT utilizada para transformar el archivo XML a HTML.
-- **HTML**: Resultado de la transformación, visualización de la factura en formato HTML.
+# Crear un escritor para el archivo de salida
+$writer = New-Object System.IO.StreamWriter($outputPath)
 
-## Ejecutar la Transformación con PowerShell
+# Aplicar la transformación XSLT al XML
+$xslt.Transform($xml, $null, $writer)
+$writer.Close()
 
-Sigue estos pasos para ejecutar la transformación en PowerShell:
+Write-Host "Transformación completada. Archivo generado en $outputPath"
+```
 
-1. Abre PowerShell.
-2. Navega a la carpeta donde se encuentran los archivos del proyecto.
-   
-   ```powershell
-   cd "ruta/a/tu/proyecto"
-   ```
+## Uso
 
-3. Ejecuta el siguiente comando para transformar el archivo `factura.xml` con `transformacion.xslt` y generar el archivo `factura.html`:
+1. Coloque los archivos `factura.xml` y `transformacion.xslt` en la misma carpeta que el script PowerShell.
+2. Ejecute el script `script.ps1` en PowerShell.
+3. Se generará un archivo `factura.html` con la versión transformada en XHTML.
 
-   ```powershell
-   $xmlPath = ".\factura.xml"  # Archivo XML
-   $xsltPath = ".\transformacion.xslt"  # Archivo XSLT
-   $outputPath = ".\factura.html"  # Archivo de salida HTML
-
-   # Cargar el archivo XML
-   $xml = New-Object System.Xml.XmlDocument
-   $xml.Load($xmlPath)
-
-   # Cargar el archivo XSLT
-   $xslt = New-Object System.Xml.Xsl.XslCompiledTransform
-   $xslt.Load($xsltPath)
-
-   # Crear un escritor para el archivo de salida
-   $writer = New-Object System.IO.StreamWriter($outputPath)
-
-   # Aplicar la transformación XSLT al XML
-   $xslt.Transform($xml, $null, $writer)
-
-   # Cerrar el escritor
-   $writer.Close()
-
-   Write-Host "Transformación completada. El archivo HTML se ha guardado en: $outputPath"
-   ```
-
-4. Repite el mismo proceso para el archivo `factura1.xml` con su correspondiente archivo `transformacion1.xslt`.
-
-## Ver el Proyecto
-
-Para ver el proyecto en acción, abre el archivo `index.html` en tu navegador. Este archivo contiene enlaces a las facturas transformadas y los archivos fuente.
-
-### Enlaces en `index.html`:
-
-- **Factura Flores**: Enlace a la transformación de la primera factura.
-- **Factura Móviles**: Enlace a la transformación de la segunda factura.
-- **Ver los archivos fuente**: Enlaces a los archivos XML y XSLT de ambos ejemplos.
-
-## Contribuciones
-
-Si deseas contribuir a este proyecto, realiza un fork del repositorio y envía tus mejoras o correcciones a través de un pull request.
+## Notas
+- Asegúrese de que los archivos XML y XSLT sean válidos antes de ejecutar la transformación.
+- Puede modificar `transformacion.xslt` para personalizar el formato de salida según sus necesidades.
 
 ## Licencia
+Este proyecto es de uso libre y puede ser modificado según sea necesario.
 
-Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles.
-```
-
-Este archivo `README.md` proporciona una visión general de tu proyecto, instrucciones claras para ejecutar la transformación, así como una estructura organizada para que otros puedan ver el código y los resultados.
