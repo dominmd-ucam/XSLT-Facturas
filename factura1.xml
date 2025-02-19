@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fe:Invoice xmlns:fe="http://www.facturae.es/Facturae/2009/v3.2/Facturae">
+    <fe:InvoiceHeader>
+        <fe:InvoiceNumber>FAC98765</fe:InvoiceNumber>
+        <fe:InvoiceIssueData>
+            <fe:IssueDate>2025-03-01</fe:IssueDate>
+        </fe:InvoiceIssueData>
+    </fe:InvoiceHeader>
+    <fe:SellerParty>
+        <fe:LegalEntity>
+            <fe:CorporateName>Tech Innovators S.A.</fe:CorporateName>
+            <fe:AddressInSpain>
+                <fe:Address>Avenida de la Innovación, 456</fe:Address>
+                <fe:Town>Barcelona</fe:Town>
+                <fe:Province>Barcelona</fe:Province>
+            </fe:AddressInSpain>
+        </fe:LegalEntity>
+        <fe:TaxIdentification>
+            <fe:TaxIdentificationNumber>EST12345678</fe:TaxIdentificationNumber>
+        </fe:TaxIdentification>
+    </fe:SellerParty>
+    <fe:BuyerParty>
+        <fe:Individual>
+            <fe:Name>Ana</fe:Name>
+            <fe:FirstSurname>Gómez</fe:FirstSurname>
+        </fe:Individual>
+        <fe:TaxIdentification>
+            <fe:TaxIdentificationNumber>ESX12387654</fe:TaxIdentificationNumber>
+        </fe:TaxIdentification>
+    </fe:BuyerParty>
+    <fe:Items>
+        <fe:InvoiceLine>
+            <fe:ItemDescription>Smartphone X</fe:ItemDescription>
+            <fe:Quantity>1</fe:Quantity>
+            <fe:UnitPriceWithoutTax>350.00</fe:UnitPriceWithoutTax>
+            <fe:TotalCost>350.00</fe:TotalCost>
+        </fe:InvoiceLine>
+        <fe:InvoiceLine>
+            <fe:ItemDescription>Smartwatch Y</fe:ItemDescription>
+            <fe:Quantity>2</fe:Quantity>
+            <fe:UnitPriceWithoutTax>120.00</fe:UnitPriceWithoutTax>
+            <fe:TotalCost>240.00</fe:TotalCost>
+        </fe:InvoiceLine>
+    </fe:Items>
+    <fe:InvoiceTotals>
+        <fe:InvoiceTotal>590.00</fe:InvoiceTotal>
+    </fe:InvoiceTotals>
+</fe:Invoice>

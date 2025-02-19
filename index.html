@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de Factura Electrónica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .link-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .link-list li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .link-list a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .link-list a:hover {
+            color: #007bff;
+        }
+
+        .file-type {
+            font-style: italic;
+            color: #777;
+        }
+
+        .section-title {
+            background-color: #e0e0e0;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+    /* Estilo para el pie de página */
+    .footer {
+        text-align: center; /* Centra el texto */
+        margin-top: 20px; /* Añade espacio en la parte superior */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+        color: #333; /* Color de texto */
+    }
+
+    .footer a {
+        color: #007bff; /* Color del enlace */
+        text-decoration: none; /* Elimina el subrayado */
+    }
+
+    .footer a:hover {
+        text-decoration: underline; /* Subraya el enlace cuando pasa el ratón */
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>XSLT FACTURAS</h1>
+
+        <p>Selecciona uno de los siguientes archivos para ver su contenido o el resultado de la transformación:</p>
+
+        <!-- Sección: Factura Flores -->
+        <div class="section-title">FACTURA FLORES:</div>
+        <ul class="link-list">
+            <li>
+                <a href="factura.xml" target="_blank">XML de Factura Flores</a>
+                <span class="file-type">(XML)</span>
+            </li>
+            <li>
+                <a href="transformacion.xslt" target="_blank">XSLT de Factura Flores</a>
+                <span class="file-type">(XSLT)</span>
+            </li>
+            <li>
+                <a href="factura.html" target="_blank">HTML de Factura Flores (Resultado de la transformación)</a>
+                <span class="file-type">(HTML)</span>
+            </li>
+        </ul>
+
+        <!-- Sección: Factura Móviles -->
+        <div class="section-title">FACTURA MOVILES:</div>
+        <ul class="link-list">
+            <li>
+                <a href="factura1.xml" target="_blank">XML de Factura Móviles</a>
+                <span class="file-type">(XML)</span>
+            </li>
+            <li>
+                <a href="transformacion1.xslt" target="_blank">XSLT de Factura Móviles</a>
+                <span class="file-type">(XSLT)</span>
+            </li>
+            <li>
+                <a href="factura1.html" target="_blank">HTML de Factura Móviles (Resultado de la transformación)</a>
+                <span class="file-type">(HTML)</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>Para más detalles, consulta el <a href="README.md" download>README.md</a>.</p>
+    </div>
+
+</body>
+</html>
