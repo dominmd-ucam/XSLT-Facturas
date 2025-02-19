@@ -1,5 +1,3 @@
-Aquí tienes un archivo `README.md` adecuado para subir a GitHub:
-
 ```markdown
 # Proyecto de Transformación de Facturas XML a HTML
 
