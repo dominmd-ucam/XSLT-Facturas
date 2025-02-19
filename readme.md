@@ -1,5 +1,3 @@
-Aquí tienes la última respuesta convertida en código Markdown:
-
 ```markdown
 # Proyecto de Transformación XML a HTML con XSLT
 
